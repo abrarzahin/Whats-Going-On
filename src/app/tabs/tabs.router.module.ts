@@ -14,7 +14,7 @@ const routes: Routes = [
             path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           },
-          { path: 'activity-detail', loadChildren:
+          { path: 'activity-detail/:activityID', loadChildren:
              '../activity-detail/activity-detail.module#ActivityDetailPageModule'}
         ]
       },

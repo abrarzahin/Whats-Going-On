@@ -7,28 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-img src="https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/15941177_1079710782139302_266709256049992526_n.jpg?_nc_cat=104&_nc_oc=AQmTpSWnpsawFWvIMZIYCX_W4QD-wl5Pe_cVaAwlTW3aBH7CljBB7Y_yqTLCfNkD4hs&_nc_ht=scontent.fnyc1-1.fna&oh=c2173dfe27b667cec83f89bf1ab54369&oe=5DD7B208"></ion-img>
+  <ion-card button *ngFor="let activity of (activityList | async)">
+    <ion-img [src]="activity.cropped"></ion-img>
     <ion-card-header>
-      <ion-card-title>Zahin's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/15941177_1079710782139302_266709256049992526_n.jpg?_nc_cat=104&_nc_oc=AQmTpSWnpsawFWvIMZIYCX_W4QD-wl5Pe_cVaAwlTW3aBH7CljBB7Y_yqTLCfNkD4hs&_nc_ht=scontent.fnyc1-1.fna&oh=c2173dfe27b667cec83f89bf1ab54369&oe=5DD7B208"></ion-img>
-    <ion-card-header>
-      <ion-card-title>Zahin's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/15941177_1079710782139302_266709256049992526_n.jpg?_nc_cat=104&_nc_oc=AQmTpSWnpsawFWvIMZIYCX_W4QD-wl5Pe_cVaAwlTW3aBH7CljBB7Y_yqTLCfNkD4hs&_nc_ht=scontent.fnyc1-1.fna&oh=c2173dfe27b667cec83f89bf1ab54369&oe=5DD7B208"></ion-img>
-    <ion-card-header>
-      <ion-card-title>Zahin's Activity</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card>
-    <ion-img src="https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/15941177_1079710782139302_266709256049992526_n.jpg?_nc_cat=104&_nc_oc=AQmTpSWnpsawFWvIMZIYCX_W4QD-wl5Pe_cVaAwlTW3aBH7CljBB7Y_yqTLCfNkD4hs&_nc_ht=scontent.fnyc1-1.fna&oh=c2173dfe27b667cec83f89bf1ab54369&oe=5DD7B208"></ion-img>
-    <ion-card-header>
-      <ion-card-title>Zahin's Activity</ion-card-title>
+      <ion-card-title>{{activity.name}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 </ion-content>

@@ -12,6 +12,8 @@ export class Tab1Page {
   activityList: Observable<Activity[]>;
 
   constructor(activityService: ActivityService){
-    this.activityList = activityService.getAllActivites();
+    setTimeout(()=> {
+      this.activityList = activityService.getAllActivites();
+    }, 3000);
   }
 }

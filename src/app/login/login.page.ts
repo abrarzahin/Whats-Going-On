@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { LoginCredential } from '../types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { LoginCredential } from '../types';
 export class LoginPage implements OnInit {
   loginFormGroup: FormGroup;
   constructor(
+    private _router: Router,
     private _loginService: LoginService,
     formBuilder: FormBuilder
   ) { 
@@ -26,6 +28,7 @@ export class LoginPage implements OnInit {
     const loginCredentials: LoginCredential = this.loginFormGroup.value;
     this._loginService.login(loginCredentials)
         .then((authData)=>{
+          this._router.navigate(["/tabs"]);
           console.log(authData);
         })
         .catch((authError)=>{

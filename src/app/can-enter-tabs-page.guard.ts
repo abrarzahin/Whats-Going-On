@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot,  UrlTree, Router, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from "rxjs/operators";
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class CanEnterLoginPageGuard implements CanActivate {
+export class CanEnterTabsPageGuard implements CanActivate  {
 
   constructor(
     private _angularFireAuth: AngularFireAuth,
@@ -20,8 +21,8 @@ export class CanEnterLoginPageGuard implements CanActivate {
     stateSnapshot: RouterStateSnapshot){
       return this._angularFireAuth.authState.pipe(
         map((auth)=> {
-          if(auth){
-            this._router.navigate(["/tabs"]);
+          if(!auth){
+            this._router.navigate(["/login"]);
             return false;
           } else {
             return true;

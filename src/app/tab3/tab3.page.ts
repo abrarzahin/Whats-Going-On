@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import {CameraOptions, Camera} from "@ionic-native/camera/ngx";
 
 @Component({
@@ -9,9 +12,16 @@ import {CameraOptions, Camera} from "@ionic-native/camera/ngx";
 })
 export class Tab3Page {
   myProfileImage;
+  myStoredProfileImage: Observable<any>;
   constructor(
+        private _angularFireStore: AngularFirestore,
+        private _angularFireAuth: AngularFireAuth,
         private _camera: Camera,
         private _alertController: AlertController){
+          this.myStoredProfileImage = _angularFireStore
+        .collection("users")
+        .doc(this._angularFireAuth.auth.currentUser.uid)
+        .valueChanges();
 
   }
 
@@ -49,7 +59,14 @@ export class Tab3Page {
           handler: ()=>{
             this._camera.getPicture(cameraOptions)
             .then((imageData)=> {
-              this.myProfileImage = "data:image/jpeg;base64," + imageData;
+            //  this.myProfileImage = "data:image/jpeg;base64," + imageData;
+            const image = "data:image/jpeg;base64," + imageData;
+              this._angularFireStore
+                .collection("users")
+                .doc(this._angularFireAuth.auth.currentUser.uid)
+                .set({
+                  image_src: image
+                });
             });
           }
         },
@@ -58,7 +75,15 @@ export class Tab3Page {
           handler: ()=>{
             this._camera.getPicture(galleryOptions)
             .then((imageData)=> {
-              this.myProfileImage = "data:image/jpeg;base64," + imageData;
+           //   this.myProfileImage = "data:image/jpeg;base64," + imageData;
+           const image = "data:image/jpeg;base64," + imageData;
+              this._angularFireStore
+                .collection("users")
+                .doc(this._angularFireAuth.auth.currentUser.uid)
+                .set({
+                  image_src: image
+                });
+
             });
           }
         }

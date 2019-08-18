@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {environment} from "../environments/environment";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     HttpClientModule,
      IonicModule.forRoot(),

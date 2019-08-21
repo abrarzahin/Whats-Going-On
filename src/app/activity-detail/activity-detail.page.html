@@ -53,11 +53,17 @@
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="bottom">
+
          <ion-fab-button (click)="openModal()">
            <ion-icon color="success" name="play"></ion-icon>
          </ion-fab-button>
+
          <ion-fab-button (click)="share()">
             <ion-icon color="dark" name="share"></ion-icon>
+          </ion-fab-button>
+
+          <ion-fab-button (click)="addToFavorites()">
+            <ion-icon color="danger" name="star"></ion-icon>
           </ion-fab-button>
       </ion-fab-list>
     </ion-fab>

@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-avatar (click)="selectImageSource()" class="profile-pic" >
-    <ion-img src="https://scontent.fnyc1-1.fna.fbcdn.net/v/t1.0-1/p240x240/15941177_1079710782139302_266709256049992526_n.jpg?_nc_cat=104&_nc_oc=AQkrCXacBQyyuLoPHpFSPIU_DnDW8mRPrqheFCYMGVm2pdWgL15c_Dhj-_AMa5revUk&_nc_ht=scontent.fnyc1-1.fna&oh=84f7edae91312c72fc81debf3ba1e7d2&oe=5DD7B208"></ion-img>
+    <ion-img [src]="(myStoredProfileImage| async)?.image_src"></ion-img>
     
   </ion-avatar>
   <ion-card>
